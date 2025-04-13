@@ -13,6 +13,10 @@ jobs:
       - name: Get curreant version
         run: echo "TAG_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV && echo "TAG_VERSION=$TAG_VERSION"
       - name: Restore dependencies
-        run: yarn
+        run: yarn install --frozen-lockfile
       - name: Build package
         run: yarn build
+      - name: Publish to npm
+        run: npm publish --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
