@@ -1,0 +1,18 @@
+name: Package
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+      - name: Get curreant version
+        run: echo "TAG_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV && echo "TAG_VERSION=$TAG_VERSION"
+      - name: Restore dependencies
+        run: yarn
+      - name: Build package
+        run: yarn build
