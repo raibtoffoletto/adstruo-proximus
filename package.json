@@ -1,6 +1,6 @@
 {
   "name": "adstruo-proximus",
-  "version": "0.0.1-beta.0",
+  "version": "0.0.0",
   "license": "MIT",
   "author": "Raí B. Toffoletto <rai@toffoletto.me>",
   "description": "Helper library for NextJS projects",
