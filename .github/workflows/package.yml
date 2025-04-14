@@ -17,7 +17,7 @@ jobs:
       - name: Get curreant version
         run: echo "TAG_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
       - name: Check tag
-        run: echo $TAG_VERSION && cat .npmrc
+        run: echo $TAG_VERSION && tree .
       - name: Restore dependencies
         run: yarn install --frozen-lockfile
       - name: Build package
