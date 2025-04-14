@@ -10,8 +10,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22.x'
+          registry-url: 'https://registry.npmjs.org'
       - name: Get curreant version
-        run: echo "TAG_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV && echo $TAG_VERSION
+        run: echo "TAG_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV
+      - name: Check tag
+        run: echo $TAG_VERSION && cat .npmrc
       - name: Restore dependencies
         run: yarn install --frozen-lockfile
       - name: Build package
