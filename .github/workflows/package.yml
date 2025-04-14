@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Get curreant version
-        run: echo "TAG_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV && echo "TAG_VERSION=$TAG_VERSION"
+        run: echo "TAG_VERSION=${GITHUB_REF#refs/*/}" >> $GITHUB_ENV && echo $TAG_VERSION
       - name: Restore dependencies
         run: yarn install --frozen-lockfile
       - name: Build package
