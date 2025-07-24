@@ -36,24 +36,27 @@
     "test": "jest --watch"
   },
   "devDependencies": {
-    "@types/jest": "^30.0.0",
-    "@types/node": "^24.1.0",
-    "@typescript-eslint/eslint-plugin": "^8.38.0",
-    "@typescript-eslint/parser": "^8.38.0",
-    "eslint": "^9.31.0",
-    "eslint-config-prettier": "^10.1.8",
-    "eslint-plugin-prettier": "^5.5.3",
-    "jest": "^30.0.5",
-    "jose": "^6.0.12",
-    "next": "^15.4.3",
-    "prettier": "^3.6.2",
-    "ts-jest": "^29.4.0",
-    "typescript": "^5.8.3",
-    "vite": "^7.0.6",
-    "vite-plugin-dts": "^4.5.4"
+    "@eslint/eslintrc": "^3.3.1",
+    "@eslint/js": "^9.31.0",
+    "@types/jest": "30.0.0",
+    "@types/node": "24.1.0",
+    "@typescript-eslint/eslint-plugin": "8.38.0",
+    "@typescript-eslint/parser": "8.38.0",
+    "eslint": "9.31.0",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-prettier": "5.5.3",
+    "globals": "^16.3.0",
+    "jest": "30.0.5",
+    "jose": "6.0.12",
+    "next": "15.4.3",
+    "prettier": "3.6.2",
+    "ts-jest": "29.4.0",
+    "typescript": "5.8.3",
+    "vite": "7.0.6",
+    "vite-plugin-dts": "4.5.4"
   },
   "peerDependencies": {
-    "jose": "^6.0.10",
-    "next": "^15.3.0"
+    "jose": "6.0.10",
+    "next": "15.3.0"
   }
 }
