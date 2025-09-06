@@ -1,4 +1,3 @@
-export { default as auth } from './auth';
-export { default as configuration } from './configuration';
-export { default as factory } from './factory';
-export { default as i18n } from './i18n';
+export { default as authMiddleware } from './auth';
+export { default as middlewareFactory } from './factory';
+export { default as i18nMiddleware } from './i18n';

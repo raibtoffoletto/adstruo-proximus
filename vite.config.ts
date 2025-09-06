@@ -3,7 +3,12 @@ import { defineConfig } from 'vite';
 import dts from 'vite-plugin-dts';
 
 export default defineConfig({
-  plugins: [dts()],
+  plugins: [
+    dts({
+      outDir: 'dist',
+      entryRoot: 'src',
+    }),
+  ],
 
   root: __dirname,
 
@@ -17,6 +22,8 @@ export default defineConfig({
   },
 
   build: {
+    emptyOutDir: true,
+
     lib: {
       entry: join(__dirname, 'src', 'index.ts'),
       name: 'index',

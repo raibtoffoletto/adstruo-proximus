@@ -1,9 +1,9 @@
 import { CompactEncrypt, SignJWT, compactDecrypt, jwtVerify } from 'jose';
 
-const APP_PASSWORD = process.env['APP_PASSWORD'];
-const JWT_KEY = process.env['JWT_KEY'];
-const JWT_ISSUER = process.env['JWT_ISSUER'];
-const JWT_AUDIENCE = process.env['JWT_AUDIENCE'];
+const APP_PASSWORD = String(process.env['APP_PASSWORD'] ?? '');
+const JWT_KEY = String(process.env['JWT_KEY'] ?? '');
+const JWT_ISSUER = String(process.env['JWT_ISSUER'] ?? '');
+const JWT_AUDIENCE = String(process.env['JWT_AUDIENCE'] ?? '');
 
 if (!APP_PASSWORD) {
   throw new Error('APP_PASSWORD variable not set');
@@ -21,7 +21,7 @@ if (!JWT_AUDIENCE) {
   throw new Error('JWT_AUDIENCE variable not set');
 }
 
-export const COOKIE = JWT_AUDIENCE as string;
+export const COOKIE = JWT_AUDIENCE;
 
 const secret = new TextEncoder().encode(JWT_KEY);
 
@@ -32,8 +32,8 @@ export async function authorize(password: string) {
 
   const jwt = await new SignJWT()
     .setProtectedHeader({ alg: 'HS256' })
-    .setIssuer(`${JWT_ISSUER}`)
-    .setAudience(`${JWT_AUDIENCE}`)
+    .setIssuer(JWT_ISSUER)
+    .setAudience(JWT_AUDIENCE)
     .setIssuedAt()
     .setExpirationTime('1h')
     .sign(secret);
